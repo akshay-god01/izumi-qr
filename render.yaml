@@ -1,0 +1,16 @@
+version: 1
+services:
+  - type: web
+    name: izumi-qr # Replace with your desired service name
+    env: node
+    plan: free # Change to 'starter', 'hobby', or other plans as needed
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+    healthCheckPath: / # Set this to a health check endpoint, if available
+    routes:
+      - src: /
+        dest: /
